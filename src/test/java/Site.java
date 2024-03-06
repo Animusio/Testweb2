@@ -3,9 +3,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.io.StringReader;
 import java.util.concurrent.TimeUnit;
-
 
 public class Site {
         WebDriver driver= new ChromeDriver();
@@ -22,7 +20,6 @@ public class Site {
         void enterGroup(String groupLink){
             WebElement registerButton = driver.findElement(By.xpath("//*[contains(text(), '" + groupLink + "')]"));
             registerButton.click();
-            System.out.println("Группа - " + groupLink);
         }
         String generalInfo() {
             String result = "________________________________________________\n";
@@ -58,4 +55,13 @@ public class Site {
             result += "\n________________________________________________\n";
             return result;
 
-        }}
+        }
+        String tomorrowInfo(){
+            String result = "________________________________________________\n";
+            result += (driver.findElement(By.xpath("//*[@id=\"dayWeek1\"]/div[1]/span[1]")).getText());
+            result +="\n";
+            result += (driver.findElement(By.xpath("//*[@id=\"dayWeek1\"]/div[2]")).getText());
+            result += "\n________________________________________________\n";
+            return result;
+    }
+}
