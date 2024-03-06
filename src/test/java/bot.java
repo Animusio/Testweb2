@@ -12,7 +12,6 @@ import java.util.List;
 public class bot extends TelegramLongPollingBot {
     int propusk = 0;
     String text2 ="";
-    String text3 ="biiiiiiiiiiiiig vbrpooeofe,of";
     @Override
     public void onUpdateReceived(Update update) {
 
