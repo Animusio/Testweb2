@@ -22,17 +22,20 @@ public class Site {
         String generalInfo() {
             StringBuilder result = new StringBuilder("________________________________________________\n");
 
-            String zanatiyaest1 =(driver.findElement(By.xpath("//*[@id=\"dayWeek1\"]")).getText());
-            String zanatiyaest2 =(driver.findElement(By.xpath("//*[@id=\"dayWeek2\"]")).getText());
-            String zanatiyaest3 =(driver.findElement(By.xpath("//*[@id=\"dayWeek3\"]")).getText());
-            String zanatiyaest4 =(driver.findElement(By.xpath("//*[@id=\"dayWeek4\"]")).getText());
-            String zanatiyaest5 =(driver.findElement(By.xpath("//*[@id=\"dayWeek5\"]")).getText());
-            String zanatiyaest6 =(driver.findElement(By.xpath("//*[@id=\"dayWeek6\"]")).getText());
+            String dayWeek1 =(driver.findElement(By.xpath("//*[@id=\"dayWeek1\"]")).getText());
+            String dayWeek2 =(driver.findElement(By.xpath("//*[@id=\"dayWeek2\"]")).getText());
+            String dayWeek3 =(driver.findElement(By.xpath("//*[@id=\"dayWeek3\"]")).getText());
+            String dayWeek4 =(driver.findElement(By.xpath("//*[@id=\"dayWeek4\"]")).getText());
+            String dayWeek5 =(driver.findElement(By.xpath("//*[@id=\"dayWeek5\"]")).getText());
+            String dayWeek6 =(driver.findElement(By.xpath("//*[@id=\"dayWeek6\"]")).getText());
 
 
-            if(zanatiyaest1.contains("Занятий нет")){
+            if(dayWeek1.contains("Занятий нет")){
                 result.append("Понедельник");
-                result.append("\n" + "\n");
+                result.append("""
+
+
+                        """);
                 result.append("Занятий нет(хороший балдеж (МЕД))");
                 result.append("\n________________________________________________\n");
             }else {
@@ -62,9 +65,12 @@ public class Site {
 
 
             }
-            if(zanatiyaest2.contains("Занятий нет")){
+            if(dayWeek2.contains("Занятий нет")){
                 result.append("Вторник");
-                result.append("\n" + "\n");
+                result.append("""
+
+
+                        """);
                 result.append("Занятий нет(хмм....нуу...эмм... типо ок)");
                 result.append("\n________________________________________________\n");
             }else {
@@ -91,9 +97,12 @@ public class Site {
 
                 result.append("\n__________________________________________________________\n");
             }
-            if(zanatiyaest3.contains("Занятий нет")){
+            if(dayWeek3.contains("Занятий нет")){
                 result.append("Среда");
-                result.append("\n" + "\n");
+                result.append("""
+
+
+                        """);
                 result.append("Занятий нет(ну вроде)");
                 result.append("\n________________________________________________\n");
             }else {
@@ -120,9 +129,12 @@ public class Site {
 
                 result.append("\n__________________________________________________________\n");
             }
-            if(zanatiyaest4.contains("Занятий нет")){
+            if(dayWeek4.contains("Занятий нет")){
                 result.append("Четверг");
-                result.append("\n" + "\n");
+                result.append("""
+
+
+                        """);
                 result.append("Занятий нет(умеренный балдеж 6/10)");
                 result.append("\n________________________________________________\n");
             }else {
@@ -149,9 +161,12 @@ public class Site {
 
                 result.append("\n________________________________________________\n");
             }
-            if(zanatiyaest5.contains("Занятий нет")){
+            if(dayWeek5.contains("Занятий нет")){
                 result.append("Пятница");
-                result.append("\n" + "\n");
+                result.append("""
+
+
+                        """);
                 result.append("Занятий нет                   =)");
                 result.append("\n________________________________________________\n");
             }else {
@@ -178,9 +193,12 @@ public class Site {
 
                 result.append("\n__________________________________________________________\n");
             }
-            if(zanatiyaest6.contains("Занятий нет")){
+            if(dayWeek6.contains("Занятий нет")){
                 result.append("Суббота");
-                result.append("\n" + "\n");
+                result.append("""
+
+
+                        """);
                 result.append("Занятий нет(extra hypeовый 10/10)");
                 result.append("\n________________________________________________\n");
             }else {
