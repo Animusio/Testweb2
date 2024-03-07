@@ -59,7 +59,7 @@ public class bot extends TelegramLongPollingBot {
                 propusk = 0;
             }
             else if (propusk==1) {
-                sendReplyKeyboard(chatId, "Выберите расписание: ", "Расписание на неделю","Расписание на завтра","Назад");
+                sendReplyKeyboard(chatId, "Выберите расписание: ", "Расписание на неделю","Расписание на сегодня","Назад");
                 text2 = update.getMessage().getText();
                 propusk = 0;
             }
@@ -71,11 +71,11 @@ public class bot extends TelegramLongPollingBot {
                  site.quit();
                 System.out.println(text);
 
-            }else if ("Расписание на завтра".equals(text)) {
+            }else if ("Расписание на сегодня".equals(text)) {
                 Site site = new Site();
                 site.enterGroup(text2);
-                sendTextMessage(chatId, "Расписание на завтра для "+text2);
-                sendTextMessage(chatId, site.tomorrowInfo());
+                sendTextMessage(chatId, "Расписание на сегодня для "+text2);
+                sendTextMessage(chatId, site.todayInfo());
                 site.quit();
 
             } else {
