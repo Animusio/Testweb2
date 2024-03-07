@@ -69,25 +69,36 @@ public class bot extends TelegramLongPollingBot {
             }
         }
     }
-    void sendReplyKeyboard(long chatId, String text, String... buttonLabel1) {
+    void sendReplyKeyboard(long chatId, String text, String... buttonLabels) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.setText(text);
-        KeyboardRow row = new KeyboardRow();
-        List<KeyboardRow> keyboard = new ArrayList<>();
-        for (String buttonLabel : buttonLabel1) {
-            KeyboardButton button = new KeyboardButton(buttonLabel);
-            row.add(button);
+
+        int buttonsPerRow = (int) Math.ceil(buttonLabels.length / 2.0);
+
+        List<KeyboardRow> keyboardRows = new ArrayList<>();
+        KeyboardRow currentRow = new KeyboardRow();
+
+        for (int i = 0; i < buttonLabels.length; i++) {
+            KeyboardButton button = new KeyboardButton(buttonLabels[i]);
+            currentRow.add(button);
+
+            if ((i + 1) % buttonsPerRow == 0 || i == buttonLabels.length - 1) {
+                keyboardRows.add(currentRow);
+                currentRow = new KeyboardRow();
+            }
         }
-        keyboard.add(row);
-        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboard);
+
+        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboardRows);
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
+
         try {
             execute(sendMessage);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
     }
+
     public void sendTextMessage(long chatId, String text) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
