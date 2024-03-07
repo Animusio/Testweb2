@@ -29,7 +29,6 @@ public class Site {
             String dayWeek5 =(driver.findElement(By.xpath("//*[@id=\"dayWeek5\"]")).getText());
             String dayWeek6 =(driver.findElement(By.xpath("//*[@id=\"dayWeek6\"]")).getText());
 
-
             if(dayWeek1.contains("Занятий нет")){
                 result.append("Понедельник");
                 result.append("""
@@ -39,7 +38,6 @@ public class Site {
                 result.append("Занятий нет((МЕД))");
                 result.append("\n________________________________________________\n");
             }else {
-
                 WebElement parentElement = driver.findElement(By.id("dayWeek1"));
                 List<WebElement> disciplineListElements = parentElement.findElements(By.className("discipline-list"));
                 result.append("\n                       Понедельник");
@@ -49,9 +47,7 @@ public class Site {
                 String disciplina;
                 String prepod;
                 String cabinet;
-
                 for (WebElement element : disciplineListElements) {
-
                     time = element.findElement(By.className("disc-time")).getText();
                     nomerPari = element.findElement(By.className("disc-number")).getText();
                     disciplina = element.findElement(By.className("disc-name")).getText();
@@ -60,10 +56,7 @@ public class Site {
                     result.append("\n" + "Пара №: ").append(nomerPari).append("\n").append("\n").append(time).append("\n").append("\n").append(disciplina).append("\n").append("\n").append("Преподователь: ").append(prepod).append("\n").append("\n").append("Кабинет: ").append(cabinet);
                     result.append("\n__________________________");
                 }
-
                   result.append("\n__________________________________________________________\n");
-
-
             }
             if(dayWeek2.contains("Занятий нет")){
                 result.append("Вторник");
@@ -85,7 +78,6 @@ public class Site {
                 String cabinet;
 
                 for (WebElement element : disciplineListElements) {
-
                     time = element.findElement(By.className("disc-time")).getText();
                     nomerPari = element.findElement(By.className("disc-number")).getText();
                     disciplina = element.findElement(By.className("disc-name")).getText();
@@ -94,7 +86,6 @@ public class Site {
                     result.append("\n" + "Пара №: ").append(nomerPari).append("\n").append("\n").append(time).append("\n").append("\n").append(disciplina).append("\n").append("\n").append("Преподователь: ").append(prepod).append("\n").append("\n").append("Кабинет: ").append(cabinet);
                     result.append("\n__________________________");
                 }
-
                 result.append("\n__________________________________________________________\n");
             }
             if(dayWeek3.contains("Занятий нет")){
@@ -117,7 +108,6 @@ public class Site {
                 String cabinet;
 
                 for (WebElement element : disciplineListElements) {
-
                     time = element.findElement(By.className("disc-time")).getText();
                     nomerPari = element.findElement(By.className("disc-number")).getText();
                     disciplina = element.findElement(By.className("disc-name")).getText();
@@ -126,7 +116,6 @@ public class Site {
                     result.append("\n" + "Пара №: ").append(nomerPari).append("\n").append("\n").append(time).append("\n").append("\n").append(disciplina).append("\n").append("\n").append("Преподователь: ").append(prepod).append("\n").append("\n").append("Кабинет: ").append(cabinet);
                     result.append("\n__________________________");
                 }
-
                 result.append("\n__________________________________________________________\n");
             }
             if(dayWeek4.contains("Занятий нет")){
@@ -149,7 +138,6 @@ public class Site {
                 String cabinet;
 
                 for (WebElement element : disciplineListElements) {
-
                     time = element.findElement(By.className("disc-time")).getText();
                     nomerPari = element.findElement(By.className("disc-number")).getText();
                     disciplina = element.findElement(By.className("disc-name")).getText();
@@ -158,7 +146,6 @@ public class Site {
                     result.append("\n" + "Пара №: ").append(nomerPari).append("\n").append("\n").append(time).append("\n").append("\n").append(disciplina).append("\n").append("\n").append("Преподователь: ").append(prepod).append("\n").append("\n").append("Кабинет: ").append(cabinet);
                     result.append("\n__________________________");
                 }
-
                 result.append("\n________________________________________________\n");
             }
             if(dayWeek5.contains("Занятий нет")){
@@ -181,7 +168,6 @@ public class Site {
                 String cabinet;
 
                 for (WebElement element : disciplineListElements) {
-
                     time = element.findElement(By.className("disc-time")).getText();
                     nomerPari = element.findElement(By.className("disc-number")).getText();
                     disciplina = element.findElement(By.className("disc-name")).getText();
@@ -213,7 +199,6 @@ public class Site {
                 String cabinet;
 
                 for (WebElement element : disciplineListElements) {
-
                     time = element.findElement(By.className("disc-time")).getText();
                     nomerPari = element.findElement(By.className("disc-number")).getText();
                     disciplina = element.findElement(By.className("disc-name")).getText();
@@ -222,15 +207,11 @@ public class Site {
                     result.append("\n" + "Пара №: ").append(nomerPari).append("\n").append("\n").append(time).append("\n").append("\n").append(disciplina).append("\n").append("\n").append("Преподователь: ").append(prepod).append("\n").append("\n").append("Кабинет: ").append(cabinet);
                     result.append("\n__________________________");
                 }
-
                 result.append("\n__________________________________________________________\n");
             }
-
             return result.toString();
-
         }
         String todayInfo(){
-
              StringBuilder result = new StringBuilder("________________________________________________\n");
             String denNedeli1 = (driver.findElement(By.xpath("//*[@id=\"dayWeek1\"]")).getText());
             String denNedeli2 = (driver.findElement(By.xpath("//*[@id=\"dayWeek2\"]")).getText());
@@ -239,7 +220,7 @@ public class Site {
             String denNedeli5 = (driver.findElement(By.xpath("//*[@id=\"dayWeek5\"]")).getText());
             String denNedeli6 = (driver.findElement(By.xpath("//*[@id=\"dayWeek6\"]")).getText());
 
-             if(denNedeli4.contains("понедельник") && denNedeli1.contains("сегодня")){
+             if(denNedeli1.contains("сегодня")){
                  WebElement parentElement = driver.findElement(By.id("dayWeek1"));
                  List<WebElement> disciplineListElements = parentElement.findElements(By.className("discipline-list"));
                  result.append("\n                       Понедельник");
@@ -251,7 +232,6 @@ public class Site {
                  String cabinet;
 
                  for (WebElement element : disciplineListElements) {
-
                      time = element.findElement(By.className("disc-time")).getText();
                      nomerPari = element.findElement(By.className("disc-number")).getText();
                      disciplina = element.findElement(By.className("disc-name")).getText();
@@ -260,10 +240,9 @@ public class Site {
                      result.append("\n" + "Пара №: ").append(nomerPari).append("\n").append("\n").append(time).append("\n").append("\n").append(disciplina).append("\n").append("\n").append("Преподователь: ").append(prepod).append("\n").append("\n").append("Кабинет: ").append(cabinet);
                      result.append("\n__________________________");
                  }
-
                  result.append("\n__________________________________________________________\n");
              }
-            if(denNedeli4.contains("вторник") && denNedeli2.contains("сегодня")){
+            if(denNedeli2.contains("сегодня")){
                 WebElement parentElement = driver.findElement(By.id("dayWeek2"));
                 List<WebElement> disciplineListElements = parentElement.findElements(By.className("discipline-list"));
                 result.append("\n                       Вторник");
@@ -275,7 +254,6 @@ public class Site {
                 String cabinet;
 
                 for (WebElement element : disciplineListElements) {
-
                     time = element.findElement(By.className("disc-time")).getText();
                     nomerPari = element.findElement(By.className("disc-number")).getText();
                     disciplina = element.findElement(By.className("disc-name")).getText();
@@ -284,10 +262,9 @@ public class Site {
                     result.append("\n" + "Пара №: ").append(nomerPari).append("\n").append("\n").append(time).append("\n").append("\n").append(disciplina).append("\n").append("\n").append("Преподователь: ").append(prepod).append("\n").append("\n").append("Кабинет: ").append(cabinet);
                     result.append("\n__________________________");
                 }
-
                 result.append("\n__________________________________________________________\n");
             }
-            if(denNedeli4.contains("среда") && denNedeli3.contains("сегодня")){
+            if(denNedeli3.contains("сегодня")){
                 WebElement parentElement = driver.findElement(By.id("dayWeek3"));
                 List<WebElement> disciplineListElements = parentElement.findElements(By.className("discipline-list"));
                 result.append("\n                       Среда");
@@ -299,7 +276,6 @@ public class Site {
                 String cabinet;
 
                 for (WebElement element : disciplineListElements) {
-
                     time = element.findElement(By.className("disc-time")).getText();
                     nomerPari = element.findElement(By.className("disc-number")).getText();
                     disciplina = element.findElement(By.className("disc-name")).getText();
@@ -308,10 +284,9 @@ public class Site {
                     result.append("\n" + "Пара №: ").append(nomerPari).append("\n").append("\n").append(time).append("\n").append("\n").append(disciplina).append("\n").append("\n").append("Преподователь: ").append(prepod).append("\n").append("\n").append("Кабинет: ").append(cabinet);
                     result.append("\n__________________________");
                 }
-
                 result.append("\n__________________________________________________________\n");
             }
-            if(denNedeli4.contains("четверг") && denNedeli4.contains("сегодня")){
+            if(denNedeli4.contains("сегодня")){
                 WebElement parentElement = driver.findElement(By.id("dayWeek4"));
                 List<WebElement> disciplineListElements = parentElement.findElements(By.className("discipline-list"));
                 result.append("\n                       Четверг");
@@ -323,7 +298,6 @@ public class Site {
                 String cabinet;
 
                 for (WebElement element : disciplineListElements) {
-
                     time = element.findElement(By.className("disc-time")).getText();
                     nomerPari = element.findElement(By.className("disc-number")).getText();
                     disciplina = element.findElement(By.className("disc-name")).getText();
@@ -332,10 +306,9 @@ public class Site {
                     result.append("\n" + "Пара №: ").append(nomerPari).append("\n").append("\n").append(time).append("\n").append("\n").append(disciplina).append("\n").append("\n").append("Преподователь: ").append(prepod).append("\n").append("\n").append("Кабинет: ").append(cabinet);
                     result.append("\n__________________________");
                 }
-
                 result.append("\n________________________________________________\n");
             }
-            if(denNedeli4.contains("пятница") && denNedeli5.contains("сегодня")){
+            if(denNedeli5.contains("сегодня")){
                 WebElement parentElement = driver.findElement(By.id("dayWeek5"));
                 List<WebElement> disciplineListElements = parentElement.findElements(By.className("discipline-list"));
                 result.append("\n                       Пятница");
@@ -347,7 +320,6 @@ public class Site {
                 String cabinet;
 
                 for (WebElement element : disciplineListElements) {
-
                     time = element.findElement(By.className("disc-time")).getText();
                     nomerPari = element.findElement(By.className("disc-number")).getText();
                     disciplina = element.findElement(By.className("disc-name")).getText();
@@ -356,10 +328,9 @@ public class Site {
                     result.append("\n" + "Пара №: ").append(nomerPari).append("\n").append("\n").append(time).append("\n").append("\n").append(disciplina).append("\n").append("\n").append("Преподователь: ").append(prepod).append("\n").append("\n").append("Кабинет: ").append(cabinet);
                     result.append("\n__________________________________________________________\n");
                 }
-
                 result.append("\n__________________________________________________________\n");
             }
-            if(denNedeli4.contains("суббота") && denNedeli6.contains("сегодня")){
+            if(denNedeli6.contains("сегодня")){
                 WebElement parentElement = driver.findElement(By.id("dayWeek6"));
                 List<WebElement> disciplineListElements = parentElement.findElements(By.className("discipline-list"));
                 result.append("\n                       Суббота");
@@ -371,7 +342,6 @@ public class Site {
                 String cabinet;
 
                 for (WebElement element : disciplineListElements) {
-
                     time = element.findElement(By.className("disc-time")).getText();
                     nomerPari = element.findElement(By.className("disc-number")).getText();
                     disciplina = element.findElement(By.className("disc-name")).getText();

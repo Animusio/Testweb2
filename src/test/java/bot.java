@@ -11,42 +11,30 @@ import java.util.ArrayList;
 import java.util.List;
 public class bot extends TelegramLongPollingBot {
     int propulsion = 0;
-    String text2 ="";
+    String text2;
     @Override
     public void onUpdateReceived(Update update) {
-
         long chatId = update.getMessage().getChatId();
         String text = update.getMessage().getText();
-
         if(update.hasMessage() && update.getMessage().hasText()) {
-
             if ("/start".equals(text)) {
-
                 sendReplyKeyboard(chatId, "Выберите специальность: ", "1ИС..","1БС..","1МНЭ..","1МЭ..","1РЭ..","1ЭБ..");
-
             }else if ("1ИС..".equals(text)) {
-
                 sendReplyKeyboard(chatId, "Выберите группу: ", "1ИС10","1ИС21","1ИС22","1ИС30","1ИС30п","Назад");
                 propulsion = 1;
-
             }else if ("1БС..".equals(text)) {
-
                 sendReplyKeyboard(chatId, "Выберите группу: ", "1БС01","1БС02","1БС11","1БС12","1БС20","1БС30","Назад");
                 propulsion = 1;
             }else if ("1МНЭ..".equals(text)) {
-
                 sendReplyKeyboard(chatId, "Выберите группу: ", "1МНЭ01","1МНЭ02","1МНЭ11","1МНЭ12","1МНЭ20","1МНЭ20п","1МНЭ30","1МНЭ30п","Назад");
                 propulsion = 1;
             }else if ("1МЭ..".equals(text)) {
-
                 sendReplyKeyboard(chatId, "Выберите группу: ", "1МЭ01","1МЭ02","1МЭ30","Назад");
                 propulsion = 1;
             }else if ("1РЭ..".equals(text)) {
-
                 sendReplyKeyboard(chatId, "Выберите группу: ", "1РЭ01","1РЭ02","1РЭ11","1РЭ12","1РЭ13","1РЭ21","1РЭ22","1РЭ23","1РЭ30п","1РЭ31","1РЭ32","Назад");
                 propulsion = 1;
             }else if ("1ЭБ..".equals(text)) {
-
                 sendReplyKeyboard(chatId, "Выберите группу: ", "1ЭБ10","1ЭБ20","1ЭБ30","Назад");
                 propulsion = 1;
             }
@@ -66,14 +54,12 @@ public class bot extends TelegramLongPollingBot {
                  sendTextMessage(chatId, site.generalInfo());
                  site.quit();
                 System.out.println(text);
-
             }else if ("Расписание на сегодня".equals(text)) {
                 Site site = new Site();
                 site.enterGroup(text2);
                 sendTextMessage(chatId, "Расписание на сегодня для "+text2);
                 sendTextMessage(chatId, site.todayInfo());
                 site.quit();
-
             } else {
                 propulsion = 0;
                 sendReplyKeyboard(chatId, "Привет!", "/start");
@@ -87,7 +73,6 @@ public class bot extends TelegramLongPollingBot {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.setText(text);
-
         KeyboardRow row = new KeyboardRow();
         List<KeyboardRow> keyboard = new ArrayList<>();
         for (String buttonLabel : buttonLabel1) {
@@ -97,7 +82,6 @@ public class bot extends TelegramLongPollingBot {
         keyboard.add(row);
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboard);
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
-
         try {
             execute(sendMessage);
         } catch (TelegramApiException e) {
