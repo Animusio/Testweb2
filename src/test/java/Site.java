@@ -64,7 +64,7 @@ public class Site {
 
 
                         """);
-                result.append("Занятий нет(хмм....нуу...эмм... типо ок)");
+                result.append("Занятий нет(очен жал)");
                 result.append("\n________________________________________________\n");
             }else {
                 WebElement parentElement = driver.findElement(By.id("dayWeek2"));
@@ -185,7 +185,7 @@ public class Site {
 
 
                         """);
-                result.append("Занятий нет(extra hypeовый 10/10)");
+                result.append("Занятий нет(extra hype 10/10)");
                 result.append("\n________________________________________________\n");
             }else {
                 WebElement parentElement = driver.findElement(By.id("dayWeek6"));
