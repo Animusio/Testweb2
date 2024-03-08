@@ -2,7 +2,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -21,13 +24,21 @@ public class Site {
         }
         String generalInfo() {
             StringBuilder result = new StringBuilder("________________________________________________\n");
-
+            week generate = new week();
             String dayWeek1 =(driver.findElement(By.xpath("//*[@id=\"dayWeek1\"]")).getText());
             String dayWeek2 =(driver.findElement(By.xpath("//*[@id=\"dayWeek2\"]")).getText());
             String dayWeek3 =(driver.findElement(By.xpath("//*[@id=\"dayWeek3\"]")).getText());
             String dayWeek4 =(driver.findElement(By.xpath("//*[@id=\"dayWeek4\"]")).getText());
             String dayWeek5 =(driver.findElement(By.xpath("//*[@id=\"dayWeek5\"]")).getText());
             String dayWeek6 =(driver.findElement(By.xpath("//*[@id=\"dayWeek6\"]")).getText());
+
+//            result.append(generate.generateWeek(driver, dayWeek1, "Понедельник","Занятий нет((МЕД))"));
+//            result.append(generate.generateWeek(driver, dayWeek2, "Вторник","Занятий нет(очен жал)"));
+//            result.append(generate.generateWeek(driver, dayWeek3, "Среда","Занятий нет((МЕД))"));
+//            result.append(generate.generateWeek(driver, dayWeek4, "Четверг","Занятий нет((МЕД))"));
+//            result.append(generate.generateWeek(driver, dayWeek5, "Пятница","Занятий нет((МЕД))"));
+//            result.append(generate.generateWeek(driver, dayWeek6, "Суббота","Занятий нет((МЕД))"));
+
 
             if(dayWeek1.contains("Занятий нет")){
                 result.append("Понедельник");
@@ -210,7 +221,7 @@ public class Site {
                 result.append("\n__________________________________________________________\n");
             }
             return result.toString();
-        }
+            }
         String todayInfo(){
              StringBuilder result = new StringBuilder("________________________________________________\n");
 
